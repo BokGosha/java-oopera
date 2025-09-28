@@ -18,20 +18,20 @@ public class Actor extends Person {
 
         Actor actor = (Actor) o;
         return height == actor.height &&
-                Objects.equals(this.getName(), actor.getName()) &&
-                Objects.equals(this.getSurname(), actor.getSurname());
+                Objects.equals(name, actor.name) &&
+                Objects.equals(surname, actor.surname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.getName(), this.getSurname(), height);
+        return Objects.hash(name, surname, height);
     }
 
     @Override
     public String toString() {
         return "Актёр: " +
-                this.getName() + ' ' +
-                this.getSurname() + ' ' +
+                name + ' ' +
+                surname + ' ' +
                 '(' + height + ')';
     }
 }

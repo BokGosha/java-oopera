@@ -7,20 +7,16 @@ import java.util.ArrayList;
 
 public class Show {
 
-    private final String title;
-    private final int duration;
-    private final Director director;
-    private final ArrayList<Actor> listOfActors;
+    protected final String title;
+    protected final int duration;
+    protected final Director director;
+    protected final ArrayList<Actor> listOfActors;
 
     public Show(String title, int duration, Director director) {
         this.title = title;
         this.duration = duration;
         this.director = director;
         this.listOfActors = new ArrayList<>();
-    }
-
-    public String getTitle() {
-        return title;
     }
 
     public void printDirector() {
@@ -32,7 +28,7 @@ public class Show {
     public void printActors() {
         System.out.println("Вывод списка актёров!");
 
-        System.out.println("Название спектакля: " + this.title);
+        System.out.println("Название спектакля: " + title);
 
         for (Actor actor : listOfActors) {
             System.out.println(actor);
@@ -42,14 +38,15 @@ public class Show {
     public void addActor(Actor newActor) {
         System.out.println("Добавление актёра!");
 
-        for (Actor actor : listOfActors) {
-            if (actor.equals(newActor)) {
-                System.out.println("Этот актёр уже добавлен в спектакль");
-                return;
-            }
+        if (isActorExist(newActor)) {
+            System.out.println("Этот актёр уже добавлен в спектакль");
+        } else {
+            listOfActors.add(newActor);
         }
+    }
 
-        listOfActors.add(newActor);
+    private boolean isActorExist(Actor newActor) {
+        return listOfActors.contains(newActor);
     }
 
     public void changeActor(Actor newActor, String surname) {
@@ -57,14 +54,18 @@ public class Show {
 
         for (Actor actor : listOfActors) {
             if (actor.getSurname().equals(surname)) {
-                actor.setName(newActor.getName());
-                actor.setSurname(newActor.getSurname());
-                actor.setGender(newActor.getGender());
+                setNewActor(actor, newActor);
 
                 return;
             }
         }
 
         System.out.println("Такого актёра нет в спектакле");
+    }
+
+    private void setNewActor(Actor actor, Actor newActor) {
+        actor.setName(newActor.getName());
+        actor.setSurname(newActor.getSurname());
+        actor.setGender(newActor.getGender());
     }
 }

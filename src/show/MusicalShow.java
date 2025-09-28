@@ -17,7 +17,7 @@ public class MusicalShow extends Show {
     public void printLibrettoText() {
         System.out.println("Вывод текста либретто!");
 
-        System.out.println("Название спектакля: " + this.getTitle());
+        System.out.println("Название спектакля: " + this.title);
 
         System.out.println(librettoText);
     }

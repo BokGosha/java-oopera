@@ -12,7 +12,7 @@ public class Director extends Person {
     @Override
     public String toString() {
         return "Директор: " +
-                this.getName() + ' ' +
-                this.getSurname() + ' ';
+                name + ' ' +
+                surname + ' ';
     }
 }
