@@ -5,8 +5,8 @@ import person.MusicAuthor;
 
 public class MusicalShow extends Show {
 
-    private final MusicAuthor musicAuthor;
-    private final String librettoText;
+    protected final MusicAuthor musicAuthor;
+    protected final String librettoText;
 
     public MusicalShow(String title, int duration, Director director, String librettoText, MusicAuthor musicAuthor) {
         super(title, duration, director);
